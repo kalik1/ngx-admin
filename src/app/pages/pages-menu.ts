@@ -10,12 +10,13 @@ export const MENU_ITEMS: NbMenuItem[] = [
   {
     title: 'Apps',
     icon: 'nb-keypad',
-    children: [
+    link: '/pages/apps/apps-list',
+    /*children: [
       {
         title: 'App List',
         link: '/pages/apps/apps-list',
       },
-    ],
+    ],*/
   },
   {
     title: 'FEATURES',

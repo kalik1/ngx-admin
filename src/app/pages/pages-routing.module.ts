@@ -11,7 +11,8 @@ const routes: Routes = [{
     {
       path: 'dashboard',
       component: DashboardComponent,
-    }, {
+    },
+    {
       path: 'apps',
       loadChildren: './apps/apps.module#AppsModule',
     }, {

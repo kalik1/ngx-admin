@@ -8,6 +8,16 @@ export const MENU_ITEMS: NbMenuItem[] = [
     home: true,
   },
   {
+    title: 'Apps',
+    icon: 'nb-keypad',
+    children: [
+      {
+        title: 'App List',
+        link: '/pages/apps/apps-list',
+      },
+    ],
+  },
+  {
     title: 'FEATURES',
     group: true,
   },

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 
-import { ViewRenderComponent } from './app-list-click';
+import { ViewRenderComponent } from './app-list-click.component';
 
 import { LocalDataSource } from 'ng2-smart-table';
 

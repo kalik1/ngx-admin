@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppService } from './services/app.service';
+import { DndModule } from 'ng2-dnd';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +28,7 @@ import { AppService } from './services/app.service';
     NgbModule.forRoot(),
     ThemeModule.forRoot(),
     CoreModule.forRoot(),
+    DndModule.forRoot(),
   ],
   bootstrap: [AppComponent],
   providers: [

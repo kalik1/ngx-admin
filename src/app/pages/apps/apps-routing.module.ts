@@ -7,10 +7,21 @@ import { AppsListComponent } from './apps-list/apps-list.component';
 const routes: Routes = [{
   path: '',
   component: AppsComponent,
-  children: [{
-    path: 'apps-list',
-    component: AppsListComponent,
-  }],
+  children: [
+    {
+      path: '',
+      redirectTo: 'list',
+    },
+    {
+      path: 'list',
+      component: AppsListComponent,
+    },
+    {
+      path: ':id',
+      loadChildren: './one-app/one-app.module#OneAppModule',
+      /*data: { preload: true },*/
+    },
+  ],
 }];
 
 @NgModule({

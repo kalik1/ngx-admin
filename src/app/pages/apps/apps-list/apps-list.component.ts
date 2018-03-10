@@ -1,7 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { ViewRenderComponent } from './app-list-click.component';
 import { AppService } from '../../../services/app.service';
-import {Observable} from 'rxjs/Observable';
 import {App } from '../../../models/app'
 
 @Component({

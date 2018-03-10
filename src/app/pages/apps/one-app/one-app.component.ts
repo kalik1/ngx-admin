@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import {AppService} from '../../../services/app.service';
+import { Component, OnInit /*Input, Output*/ } from '@angular/core';
+// import {AppService} from '../../../services/app.service';
 
 
 @Component({
@@ -19,7 +19,7 @@ import {AppService} from '../../../services/app.service';
 })
 export class OneAppComponent implements OnInit {
 
-  constructor(private appService: AppService) {
+  constructor(/*private appService: AppService*/ ) {
 
   }
 

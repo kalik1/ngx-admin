@@ -10,4 +10,12 @@
 
 export const environment = {
   production: false,
+  firebase: {
+    apiKey: 'AIzaSyDqOFdjcvAI6TGUg4NPzv4L6pSthRA40cE',
+    authDomain: 'myloradash.firebaseapp.com',
+    databaseURL: 'https://myloradash.firebaseio.com',
+    projectId: 'myloradash',
+    storageBucket: 'myloradash.appspot.com',
+    messagingSenderId: '818183778572',
+  },
 };

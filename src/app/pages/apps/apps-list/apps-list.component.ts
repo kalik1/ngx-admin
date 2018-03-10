@@ -1,10 +1,8 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-
 import { ViewRenderComponent } from './app-list-click.component';
-
-import { LocalDataSource } from 'ng2-smart-table';
-
 import { AppService } from '../../../services/app.service';
+import {Observable} from 'rxjs/Observable';
+import {App } from '../../../models/app'
 
 @Component({
   selector: 'ngx-apps-list',
@@ -15,19 +13,18 @@ import { AppService } from '../../../services/app.service';
     }
   `],
 })
-export class AppsListComponent  implements OnInit {
-  @Output() source: LocalDataSource;
+export class AppsListComponent implements OnInit {
+  @Output() source: App[];
   @Output() settings: any;
 
-
-  constructor(private service: AppService) {
-     this.source = new LocalDataSource();
+  constructor(private appService: AppService) {
 
     this.settings = {
       add: {
         addButtonContent: '<i class="nb-plus"></i>',
         createButtonContent: '<i class="nb-checkmark"></i>',
         cancelButtonContent: '<i class="nb-close"></i>',
+        confirmCreate: true,
       },
       edit: {
         editButtonContent: '<i class="nb-edit"></i>',
@@ -64,19 +61,29 @@ export class AppsListComponent  implements OnInit {
         },
       },
     };
-
-    const data = this.service.getApps();
-    this.source.load(data);
-
   }
 
   ngOnInit() {
-
+    this.appService.getApps().subscribe(
+      apps => {
+        this.source = apps;
+      },
+    );
   }
 
   @Input() onDeleteConfirm(event): void {
     if (window.confirm('Are you sure you want to delete?')) {
+      this.appService.deleteApp(event.data);
       event.confirm.resolve();
+    } else {
+      event.confirm.reject();
+    }
+  }
+
+  @Input() onCreateConfirm(event): void {
+    if (window.confirm('Are you sure you want to create?')) {
+      this.appService.newApp(event.newData);
+      event.confirm.resolve(event.newData);
     } else {
       event.confirm.reject();
     }
